@@ -1,27 +1,25 @@
 {
-  "name": "Electron",
+  "name": "Moodle",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "Moodle Desktop App",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/atom/electron-quick-start.git"
+    "url": "git+https://github.com/lolcookie/moodlemobile2.git"
   },
   "keywords": [
     "Electron",
-    "quick",
-    "start",
-    "tutorial"
+    "Moodle"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "Moodle",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/atom/electron-quick-start/issues"
+    "url": "https://github.com/lolcookie/moodlemobile2/issues"
   },
-  "homepage": "https://github.com/atom/electron-quick-start#readme",
+  "homepage": "https://github.com/lolcookie/moodlemobile2#readme",
   "devDependencies": {
     "electron-prebuilt": "^0.36.0"
   }
