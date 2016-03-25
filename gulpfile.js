@@ -16,6 +16,8 @@ var path = require('path');
 var File = gutil.File;
 var gulpSlash = require('gulp-slash');
 var ngAnnotate = require('gulp-ng-annotate');
+var electron = require('gulp-electron');
+var packageJson = require('./www/package.json');
 
 var license = '' +
   '// (C) Copyright 2015 Martin Dougiamas\n' +
@@ -278,4 +280,35 @@ gulp.task('config', ['build'], function(done) {
     .pipe(concat(buildFile))
     .pipe(gulp.dest(paths.build))
     .on('end', done);
+});
+
+gulp.task('electron', function() {
+
+    gulp.src("")
+    .pipe(electron({
+        src: './www',
+        packageJson: packageJson,
+        release: './release',
+        cache: './cache',
+        version: 'v0.36.0',
+        asar: true,
+        packaging: true,
+        platforms: ['darwin-x64'],
+        platformResources: {
+            darwin: {
+                CFBundleDisplayName: packageJson.name,
+                CFBundleIdentifier: packageJson.name,
+                CFBundleName: packageJson.name,
+                CFBundleVersion: packageJson.version,
+                icon: 'icon.icns'
+            },
+            win: {
+                "version-string": packageJson.version,
+                "file-version": packageJson.version,
+                "product-version": packageJson.version,
+                "icon": 'icon.ico'
+            }
+        }
+    }))
+    .pipe(gulp.dest(""));
 });

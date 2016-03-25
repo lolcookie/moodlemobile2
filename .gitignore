@@ -8,4 +8,5 @@ hooks/
 www/build
 .sass-cache/
 www/lib
-moodle-electron.asar
+release
+cache
