@@ -12,13 +12,17 @@ let mainWindow;
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600});
+  mainWindow = new BrowserWindow({width: 800, height: 600, title: 'Moodle'});
 
   // and load the index.html of the app.
   mainWindow.loadURL('file://' + __dirname + '/index.html');
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
+
+  mainWindow.on('page-title-updated', function(event) {
+    event.preventDefault();
+  });
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
